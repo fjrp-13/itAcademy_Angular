@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/*---- MAIN HEADER ----*/
+#main-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: #e7e7e7;
+}
+
+#main-header .header-item {
+    color: white;
+    margin: 10px;
+    text-align: center;
+    align-self: center;
+}
+
+#main-header .header-element {
+    line-height: 2;
+}
+
+#main-header #header-search {
+    order: 1;
+    flex-basis: 100%;
+}
+
+#main-header #header-search input {
+    width: 80%;
+}
+
+#main-header img.logo {
+    width: 150px;
+    height: 50px;
+}
+/*---- MAIN NAVIGATOR ----*/
+/* Si queremos menú horizontal en Mobile, mover este 1er grupo de estilos al media query NO MOBILE */
+nav#main-menu ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+/* A partir de aquí, NO se ha de mover al media query NO MOBILE */
+nav#main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+nav#main-menu li {
+    width: 100%;
+    text-align: center;
+}
+
+nav#main-menu li a {
+    display: block;
+    text-decoration: none;
+    padding: .5em 1em;
+    color: #666;
+}
+
+nav#main-menu li a.active {
+    color: white;
+    background-color: #000000;
+}
+
+nav#main-menu li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+/*---- MAIN CONTAINER ----*/
+#main-container {
+    margin-top: 15px;
+    padding: 0 25px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/*---- SHOWCASE ----*/
+.showcase {
+    padding: 10px;
+    overflow: auto;
+}
+
+.showcase .for-categories {
+    border: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.showcase .showcase-title {
+    margin: 0 0 10px 0;
+}
+
+/*---- BOOKS CONTAINER ----*/
+.showcase-container {
+    border: 1px solid #666666;
+    overflow-x: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 10px 25px;
+    padding: 10px;
+}
+
+.showcase-container .book-card {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    border: 1px solid #000000;
+    height: 100px;
+    min-width: 150px;
+    vertical-align: middle;
+}
+
+/*---- CATEGORIES CONTAINER ----*/
+.categories-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px 25px;
+}
+
+.categories-container .category-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    border: 1px solid #000000;
+}
+
+/*---- FOOTER ----*/
+footer {
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+}
+
+/*
+320px — 480px: Mobile devices.
+481px — 768px: iPads, Tablets.
+769px — 1024px: Small screens, laptops.
+1025px — 1200px: Desktops, large screens.
+1201px and more — Extra large screens, TV.
+*/
+/*--------------------------------------------------------------------*/
+/* MEDIAQUERY NO MOBILE */
+/*--------------------------------------------------------------------*/
+@media (min-width: 769px) {
+    /*---- MAIN HEADER ----*/
+    /* Mostrar el header en una sóla fila */
+    #main-header {
+        flex-wrap: nowrap;
+    }
+    /* Posicionar el buscador en su posición según HTML */
+    #main-header #header-search {
+        order: 0;
+        flex-grow: 1;
+        flex-basis: auto;
+    }
+}
