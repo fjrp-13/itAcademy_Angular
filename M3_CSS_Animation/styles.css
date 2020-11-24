@@ -1,0 +1,159 @@
+* {
+  /* Border y Padding incluídos en los width y height */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato';
+  color: white;
+}
+
+/* Posicionar los BLOQUES */
+.main-container .block {
+  position: absolute;
+  width: 20%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.main-container .block-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  font-size: 3em;
+  font-weight: bold;
+  /* Animacines de entrada comunes para todos los bloques */
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+          animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+/* Efecto "diagonal" copiado del enunciado: */
+/* Añade el plano blanco diagonal con opacidad */
+.block .block-content:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0.05;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
+          transform: skew(30deg) scaleY(1) translate(0, 0);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Modificación sobre el estilo blanco diagonal */
+.block .block-content:hover:before {
+  -webkit-transform: skew(0deg);
+          transform: skew(0deg);
+  opacity: 0.1;
+}
+
+/* Posición de cada bloque */
+#block1 {
+  left: 0;
+}
+#block2 {
+  left: 20vw;
+}
+#block3 {
+  left: 40vw;
+}
+#block4 {
+  left: 60vw;
+}
+#block5 {
+  left: 80vw;
+}
+
+/* Estilos y animaciones específicos de los contenidos de cada bloque */
+#block1 .block-content {
+  background: #244F75; 
+  -webkit-animation-name: block-from-left-to-right;
+          animation-name: block-from-left-to-right;
+}
+
+#block2 .block-content {
+  background: #60BFBF;
+  -webkit-animation-name: block-from-bottom-to-top;
+          animation-name: block-from-bottom-to-top;
+}
+
+#block3 .block-content {
+  background: #8C4B7E;
+  -webkit-animation-name: block-from-top-to-bottom;
+          animation-name: block-from-top-to-bottom;
+}
+
+#block4 .block-content {
+  background: #F8BB44;
+  -webkit-animation-name: block-from-bottom-to-top;
+          animation-name: block-from-bottom-to-top;
+}
+
+#block5 .block-content {
+  background: #F24B4B;
+  -webkit-animation-name: block-from-right-to-left;
+          animation-name: block-from-right-to-left;
+}
+
+/* Animaciones */
+@keyframes block-from-top-to-bottom {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes block-from-bottom-to-top {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes block-from-left-to-right {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes block-from-right-to-left {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
