@@ -1,0 +1,111 @@
+// CONSULTA:
+// Albert, he visto que si indico el color del plano/transparencia VERDE, al cargar la página, en la parte superior 
+// de la 5ª columna se ve el plano durante un pequeño instante ese plano de color verde.
+// Si cambio el nº de bloques de 5 a 7 (p.e.), se sigue mostrando en la misma posición.
+// No he sabido entender pq se muestra en esa posición.
+// Para probarlo, descomenta las 2 variables de debajo de este comentario (en el HTML existen los bloques 6 y 7 pero están comentados)
+//
+// $plano-color: green;
+// $num-bloques: 7;
+
+// Variables globales
+$default-color: white;
+$default-font-family: 'Lato';
+
+// Variables de los bloques
+$num-bloques: 5 !default;
+$block-width: 100 / $num-bloques;
+$block-color-default: #cc6402;
+$block-colors: (
+    block1: #244F75,
+    block2: #60BFBF,
+    block3: #8C4B7E,
+    block4: #F8BB44,
+    block5: #F24B4B
+);
+
+// Variables para las animaciones
+$animation-duracion: 1s;
+$animation-delay: 0.5s;
+$animation-mode: both;
+$animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+
+// Animación por defecto (por si no se encuentra el bloque)
+$block-animation-start-default: (
+    x: -100%,
+    y: -100%,
+    z: 0
+);
+$block-animation-end-default: (
+    x: 0,
+    y: 0,
+    z: 0
+);
+// Animación del bloque 1
+$block1-animation-start:  (
+    x: -100%,
+    y: 0,
+    z: 0
+);
+$block1-animation-end:  (
+    x: 0,
+    y: 0,
+    z: 0
+);
+// Animación del bloque 2
+$block2-animation-start:  (
+    x: 0,
+    y: 100%,
+    z: 0
+);
+$block2-animation-end: (
+    x: 0,
+    y: 0,
+    z: 0
+);
+// Animación del bloque 3
+$block3-animation-start: (
+    x: 0,
+    y: -100%,
+    z: 0
+);
+$block3-animation-end: (
+    x: 0,
+    y: 0,
+    z: 0
+);
+// Animación del bloque 4
+$block4-animation-start:  (
+    x: 0,
+    y: 100%,
+    z: 0
+);
+$block4-animation-end: (
+    x: 0,
+    y: 0,
+    z: 0
+);
+// Animación del bloque 5
+$block5-animation-start:  (
+    x: 100%,
+    y: 0,
+    z: 0
+);
+$block5-animation-end: (
+    x: 0,
+    y: 0,
+    z: 0
+);
+// Lista con las animaciones para acceder a ellas por posición según el bloque (1, 2, 3, ...)
+$list-animations-start: $block1-animation-start $block2-animation-start $block3-animation-start $block4-animation-start $block5-animation-start;
+$list-animations-end: $block1-animation-end $block2-animation-end $block3-animation-end $block4-animation-end $block5-animation-end;
+
+// Variales del plano transparente de los bloques
+$plano-color: white !default;
+$plano-opacity: 0.05;
+$plano-transition-function: $animation-timing-function;
+$plano-transition-duration: 0.6s;
+$plano-hover-opacity: 0.1;
+$plano-transform-origin: center center;
+$plano-transform: skew(30deg) scaleY(1) translate(0, 0);
+$plano-hover-transform: skew(0deg);

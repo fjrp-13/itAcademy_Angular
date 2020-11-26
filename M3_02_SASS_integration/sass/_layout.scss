@@ -1,0 +1,56 @@
+// @import "animations";
+* {
+    /* Border y Padding incluídos en los width y height */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $default-font-family;
+    color: $default-color;
+}
+
+/* Posicionar los BLOQUES */
+.main-container {
+    .block {
+        position: absolute;
+        width: $block-width * 1%;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+}
+
+/* Estilos de los bloques */
+@mixin block-content-text-style {
+    text-decoration: none;
+    font-size: 3em;
+    font-weight: bold;
+}
+.main-container {
+    .block-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Estilos de los textos */
+        @include block-content-text-style;
+    }
+}
+
+// Procesar los bloques
+@for $index from 1 through $num-bloques {
+    // Posición de cada bloque
+    #block#{$index} {
+        left: ($block-width * ($index - 1)) * 1vw;
+
+        // Estilos y animaciones específicos de los contenidos de cada bloque
+        .block-content {
+            $block-color: map-get($block-colors, "block#{$index}");
+            $block-color: $block-color-default !default;
+            background-color: $block-color; 
+        }
+    }
+}

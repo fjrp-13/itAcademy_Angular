@@ -1,0 +1,96 @@
+// Datos comunes de las animacines de entrada para todos los bloques
+@mixin common-animations {
+  -webkit-animation-duration: $animation-duracion;
+          animation-duration: $animation-duracion;
+  -webkit-animation-timing-function: $animation-timing-function;
+          animation-timing-function: $animation-timing-function;
+  -webkit-animation-fill-mode: $animation-mode;
+          animation-fill-mode: $animation-mode;
+  -webkit-animation-delay: $animation-delay;
+          animation-delay: $animation-delay;
+}
+
+// Transform Browser Preffix
+@mixin transform($transforms, $sufijo:'') {
+	-webkit-transform#{$sufijo}: $transforms;
+	-moz-transform#{$sufijo}: $transforms;
+	-ms-transform#{$sufijo}: $transforms;
+	transform#{$sufijo}: $transforms;
+}
+@mixin translate3d($x, $y, $z) {
+    @include transform(translate3d($x, $y, $z));
+}
+
+/* Animación de cada bloque */
+@for $index from 1 through $num-bloques {
+    // Definir las animaciones de cada bloque
+    @keyframes block#{$index}-animation {
+        $block-animation-start: $block-animation-start-default;
+        $block-animation-end: $block-animation-end-default;
+
+        // Controlar que el bloque tenga animación en la lista de animaciones
+        @if $index <= length($list-animations-start) {
+            $block-animation-start: nth($list-animations-start, min($index, length($list-animations-start)));
+            $block-animation-end: nth($list-animations-end, min($index, length($list-animations-end)));
+        }
+        // Efectos
+        0% {
+            @include translate3d(
+                map-get($block-animation-start, x), 
+                map-get($block-animation-start, y), 
+                map-get($block-animation-start, z)
+            );
+        }
+        100% {
+            @include translate3d(
+                map-get($block-animation-end, x), 
+                map-get($block-animation-end, y), 
+                map-get($block-animation-end, z)
+            );
+        }
+    }
+    // Animación de entrada del bloque
+    #block#{$index} {
+        .block-content {
+            -webkit-animation-name: block#{$index}-animation;
+                    animation-name: block#{$index}-animation;
+        }
+    }
+}
+
+.main-container {
+    .block-content {
+        /* Datos comunes para la animación de los bloques */
+        @include common-animations;
+    }
+}
+
+@mixin plano-diagonal {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $plano-color;
+    opacity: $plano-opacity;
+    @include transform($plano-transform-origin, '-origin');
+    @include transform($plano-transform);
+    transition: all $plano-transition-duration $plano-transition-function;
+}
+
+/* Efecto plano diagonal */
+.block {
+    &-content:before {
+        @include plano-diagonal;
+    }
+}
+  
+/* Modificación sobre el estilo del plano diagonal */
+.block {
+    &-content:hover:before {
+        @include transform($plano-hover-transform);
+        opacity: $plano-hover-opacity;
+    }
+}

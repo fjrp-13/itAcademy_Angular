@@ -1,0 +1,171 @@
+@charset "UTF-8";
+* {
+  /* Border y Padding incluídos en los width y height */
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato";
+  color: white; }
+
+/* Posicionar los BLOQUES */
+.main-container .block {
+  position: absolute;
+  width: 20%;
+  min-height: 100vh;
+  overflow: hidden; }
+
+/* Estilos de los bloques */
+.main-container .block-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Estilos de los textos */
+  text-decoration: none;
+  font-size: 3em;
+  font-weight: bold; }
+
+#block1 {
+  left: 0vw; }
+  #block1 .block-content {
+    background-color: #244F75; }
+
+#block2 {
+  left: 20vw; }
+  #block2 .block-content {
+    background-color: #60BFBF; }
+
+#block3 {
+  left: 40vw; }
+  #block3 .block-content {
+    background-color: #8C4B7E; }
+
+#block4 {
+  left: 60vw; }
+  #block4 .block-content {
+    background-color: #F8BB44; }
+
+#block5 {
+  left: 80vw; }
+  #block5 .block-content {
+    background-color: #F24B4B; }
+
+/* Animación de cada bloque */
+@keyframes block1-animation {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0); }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+#block1 .block-content {
+  -webkit-animation-name: block1-animation;
+  animation-name: block1-animation; }
+
+@keyframes block2-animation {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    -moz-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+#block2 .block-content {
+  -webkit-animation-name: block2-animation;
+  animation-name: block2-animation; }
+
+@keyframes block3-animation {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    -moz-transform: translate3d(0, -100%, 0);
+    -ms-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0); }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+#block3 .block-content {
+  -webkit-animation-name: block3-animation;
+  animation-name: block3-animation; }
+
+@keyframes block4-animation {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    -moz-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+#block4 .block-content {
+  -webkit-animation-name: block4-animation;
+  animation-name: block4-animation; }
+
+@keyframes block5-animation {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0); }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+#block5 .block-content {
+  -webkit-animation-name: block5-animation;
+  animation-name: block5-animation; }
+
+.main-container .block-content {
+  /* Datos comunes para la animación de los bloques */
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s; }
+
+/* Efecto plano diagonal */
+.block-content:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0.05;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
+  -moz-transform: skew(30deg) scaleY(1) translate(0, 0);
+  -ms-transform: skew(30deg) scaleY(1) translate(0, 0);
+  transform: skew(30deg) scaleY(1) translate(0, 0);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+
+/* Modificación sobre el estilo del plano diagonal */
+.block-content:hover:before {
+  -webkit-transform: skew(0deg);
+  -moz-transform: skew(0deg);
+  -ms-transform: skew(0deg);
+  transform: skew(0deg);
+  opacity: 0.1; }
