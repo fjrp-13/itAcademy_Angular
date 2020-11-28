@@ -1,0 +1,165 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+#main-navbar.bg-dark {
+	background-color: #121212 !important;
+}
+#navbar-row-1 .btn-secondary {
+	background-color: #121212;
+	color: #898989;
+}
+#navbar-row-1 .btn-secondary:hover,
+#navbar-row-1 .nav-link:hover {
+	color: goldenrod;	
+}
+#navbar-row-1-links .navbar-nav {
+	display: inline-flex;
+	flex-direction: row;
+}
+body {
+/* background-color: #fafafa; */
+/* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23343a40' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); */
+
+/* background-color: #343a40; */
+/* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23daa520' fill-opacity='0.52' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); */
+	background-image: url(/img/background.jpg);
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+/*---- MAIN NAVBAR ----*/
+#main-navbar {
+	padding-bottom: 0.2rem;
+}
+#main-navbar .container {
+	padding: 0;
+	flex-wrap: wrap;
+}
+
+/* Dropdowns */
+#navbar-row-1-links .dropdown-menu {
+	position: absolute;
+}
+#main-navbar .dropdown-menu {
+	background-color: #5A6268;
+	background-color: #2a2a2a
+}
+#main-navbar .dropdown-menu .dropdown-item {
+color: #ffffff;
+}
+
+#main-navbar .dropdown-item:hover {
+	background-color: #343a40;
+	background-color: #191919;
+	color: goldenrod;
+}
+
+/* FlexBox 1º fila del navegador */
+#navbar-row-1 {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: stretch;
+	width: 100%;
+}
+
+/* FlexBox 2º fila del navegador */
+#navbar-row-2 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+
+/* Search Form del navegador en su propia fila */
+#navbar-row-1 #navbar-search-form {
+	order: 1;
+	width: 100%;
+}
+
+/* Alineación horizontal y vertical de los elementos del navegador */
+#navbar-row-1 .navbar-row-item,
+#navbar-row-2 .nav-item {
+	text-align: center;
+	align-self: center;
+}
+
+/* Alineación "flexbox" de los items de la 2ª fila del navegador */
+#navbar-row-2 .nav-item {
+	flex-grow: 1;
+	text-align: center;
+	width: 100%;
+}
+
+#navbar-row-2 .nav-item .nav-link {
+	display: inline-block;
+	border-bottom: medium solid transparent;
+	padding-bottom: unset;
+}
+#navbar-row-2 .nav-item .nav-link:hover {
+	border-bottom: medium solid goldenrod;
+}
+#navbar-row-2 .nav-item.active .nav-link {
+	color: goldenrod;
+	border-bottom: medium solid goldenrod;
+}
+
+/* A los links de la 1ª fila del navegador (user/cart), le dejamos el padding que le quita Bootstrap a los nav-links */
+#navbar-row-1-links .nav-item .nav-link {
+	padding-right: .5rem;
+	padding-left: .5rem;
+}
+
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media(min-width:576px) {
+	.navbar-expand-sm .input-group-search {
+	   /* width: 100% !important;  */
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media(min-width:768px) {
+	.navbar-expand-md .input-group-search {
+	   /* width: 90% !important;  */
+	}
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media(min-width:992px) {
+	.navbar-expand-lg .input-group-search {
+	   /* width: 80% !important;  */
+	}
+	/*body {
+	   padding-top: 110px;
+	}*/
+	/*---- MAIN NAVBAR ----*/
+	/* Mostrar la 1ª fila del navegador unida (sin el wrap) */
+	#navbar-row-1 {
+		flex-wrap: nowrap;
+	}
+	/* Devolver el buscador en su posición según HTML (misma fila que el logo y los links "right" de la 1ª fila del navegador */
+	#navbar-row-1 #navbar-search-form {
+		order: 0;
+		flex-grow: 1;
+		flex-basis: auto;
+	}
+	/* #navbar-row-1-links .nav-item {
+		padding-right: unset;
+		padding-left: unset;
+	} */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media(min-width:1200px) {
+	.navbar-expand-xl .input-group-search {
+	   width: 70% !important; 
+	}
+}
