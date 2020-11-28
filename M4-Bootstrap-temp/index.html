@@ -49,6 +49,14 @@
             background-clip: content-box;
         }
 
+        .showcase {
+            margin: 1.5rem 0;
+        }
+
+        .card.showcase .card-body {
+            min-height: 300px;
+        }
+
         /* custom scrollbar */
         /* ::-webkit-scrollbar {
             width: 20px;
@@ -219,8 +227,84 @@
         </div>
     </nav>
 
-    <main id="main-container" class="container" style="background-color: #ffffff; min-height: calc(100vh * 2);">
-        Hola mundo!!
+    <main id="main-container" class="container"
+          style2="border:1px solid red; padding: 15px; background-color: #ffffff; min-height: calc(100vh * 2);"
+          style2="padding: 0; padding-top2: 1rem; min-height: calc(100vh * 2);">
+
+        <!-- Recomendaciones -->
+        <section class="card showcase">
+            <h3 class="card-header" style="background-color: #ffffff">
+                <i class="fas fa-book"></i> Recomendaciones
+            </h3>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </section>
+
+        <!-- Bestsellers -->
+        <section class="card showcase">
+            <h3 class="card-header" style="background-color: #ffffff">
+                <i class="fas fa-award"></i> Bestsellers
+            </h3>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </section>
+
+        <!-- Categorías -->
+        <section class="container-fluid">
+            <div class="row">
+                <div class="col-4 text-center" style="padding: 0;">
+                    <div class=" card">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 text-center" style="padding: 0;">
+                    <div class=" card">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Novedades -->
+        <section class="card showcase">
+            <h3 class="card-header" style="background-color: #ffffff">
+                <i class="fas fa-certificate"></i> Novedades
+            </h3>
+            <div class="card" style="border-top-left-radius: 0; border-top-right-radius: 0;">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </section>
+
     </main><!-- /#main-container -->
 
     <!-- <div class="parallax"></div> -->
