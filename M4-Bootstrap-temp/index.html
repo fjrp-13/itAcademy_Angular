@@ -12,43 +12,10 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="carousel.css">
     <!-- <link rel="stylesheet" href="css/styles3.css"> -->
     <title>FJRP</title>
     <style>
-        body,
-        html {
-            height: 100%;
-        }
-
-        .parallax {
-            /* The image used */
-            background-image: url('/img/background.jpg');
-
-            /* Full height */
-            height: 100%;
-
-            /* Create the parallax scrolling effect */
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .custom-scroll-bar::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-            background-color: #121212;
-            /* or add it to the track */
-        }
-
-        /* Add a thumb */
-        .custom-scroll-bar::-webkit-scrollbar-thumb {
-            background: goldenrod;
-            border-radius: 20px;
-            /* border: 2px solid transparent; */
-            background-clip: content-box;
-        }
-
         .showcase {
             margin: 1.5rem 0;
         }
@@ -57,68 +24,281 @@
             min-height: 300px;
         }
 
-        /* custom scrollbar */
-        /* ::-webkit-scrollbar {
-            width: 20px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #d6dee1;
-            border-radius: 20px;
-            border: 6px solid transparent;
-            background-clip: content-box;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: goldenrod;
-        } */
-
-
-        /* 
-        #main-navbar .container {
-            padding: 0;
-            flex-wrap: wrap;
-        }
-
-        #navbar-row-1 {
+        .showcase .card-body .book-item {
+            /* border: 3px dotted pink; */
+            padding-bottom: 0.5rem;
+            padding-top: 0.5rem;
+            /* width: 16.666%; */
+            max-width: 11rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            /*
+	display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+	*/
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            /*-webkit-flex-direction: column;
+    -ms-flex-direction: column;*/
+            flex-direction: column;
+            /*-webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;*/
+            align-content: stretch;
+            /*-webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;*/
+            align-items: stretch;
+            -webkit-box-pack: start;
+            /*-webkit-justify-content: flex-start;
+    -ms-flex-pack: start;*/
+            justify-content: flex-start;
+        }
+
+        .book-item .book-img {
+            /* align-self: center; */
+            /* border: 1px solid blue !important;
+            height: 15rem;
+            max-width: 11rem; */
+            max-width: 15rem;
+            max-width: 10rem;
+            height: 12rem;
+        }
+
+        .book-item .book-img a {
+            position: relative;
+            display: inline-block;
+            height: 100%;
+            max-width: 100%;
+        }
+
+        .book-item .book-img img {
+            max-height: 100%;
+            margin: 0 auto;
+            vertical-align: middle;
+        }
+
+        .book-item .book-info {
+            display: inline-block;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .book-item h3 {
+            /* border: 1px solid green; */
+            font-size: 0.9rem;
+            line-height: 1.2rem;
+            padding-top: .15rem;
+            padding-bottom: .15rem;
+            /* height: 3rem; */
+            max-width: 15rem;
+            max-width: 10rem;
+            /* overflow: hidden; */
+            /* -o-text-overflow: ellipsis; */
+            /* text-overflow: ellipsis; */
+            /* -webkit-box-sizing: content-box;
+            box-sizing: content-box; */
+        }
+
+        .book-item h3,
+        .book-item p {
+            margin: 0;
             width: 100%;
         }
 
-        #navbar-row-1 .navbar-row-item {
-            align-self: center;
+        .book-item h3 {
+            font-size: 1rem;
         }
 
-        #navbar-search-form {
-            padding: 0 0.5rem;
-            flex-grow: 1;
+        .book-item p {
+            font-size: 0.9rem;
         }
 
-        .navbar-form {
-            -webkit-flex-basis: 100%;
-            -moz-flex-basis: 100%;
-            -ms-flex-basis: 100%;
-            -o-flex-basis: 100%;
-            flex-basis: -moz-available;
-            flex-basis: 100%;
+        .book-item a:not(.btn) {
+            color: #000000;
         }
 
-        .input-group-search {
-            width: 100% !important;
+        .book-item .author {
+            color: #4d4d4d;
+            /* -webkit-box-sizing: content-box; */
+            /* box-sizing: content-box; */
+            height: 1.75rem;
+            /* font-size: 0.9rem; */
+            max-width: 15rem;
+            max-width: 10rem;
+            /* line-height: 1.75rem; */
+            overflow: hidden;
+        }
+
+        .book-item .author a {
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .book-item .author a:hover {
+            text-decoration: none;
+            border-bottom: 1px solid #000000;
+        }
+
+        .rating-wrap {
+            /* display: inline-block; */
+            display: block;
+        }
+
+        .rating-wrap .stars {
+            display: inline-block;
+        }
+
+        .star {
+            position: relative;
+            top: 0px;
+            display: block;
+            float: left;
+            height: 1.4rem;
+            width: 1.4rem;
+            font-size: 1.4rem;
+        }
+
+
+        .star:before,
+        .star:after {
+            color: #e7e7e7;
+            color: #cccccc;
+            position: absolute;
+            left: 0;
+            overflow: hidden;
+            top: -0.3em;
+        }
+
+        .star:before {
+            float: none;
+            content: "\2605";
+            content: "\1f7ca";
+            font-size: 1.10em;
+        }
+
+        .star.half-star:before {
+            color: #fed221;
+            width: 50%;
+        }
+
+        .star.half-star:after {
+            width: 50%;
+            left: .7rem;
+            text-indent: -.7rem;
+        }
+
+        .star.half-star:after {
+            float: none;
+            content: "\1f7ca";
+            font-size: 1.10em;
+        }
+
+        .star.full-star:before {
+            color: #fed221;
+        }
+
+        .book-item .book-info .price-wrap {
+            white-space: nowrap;
+            -webkit-align-self: flex-end;
+            -ms-flex-item-align: end;
+            align-self: flex-end;
+            width: 100%;
+            /* height: 4.5rem; */
+            /* margin-top: 0.5rem; */
+        }
+
+        .book-item .price {
+            font-size: 1.25rem;
+            line-height: 1.25rem;
+            padding-top: 0rem;
+            color: #E30612;
+            white-space: nowrap;
+        }
+
+        .book-item .price .rrp {
+            font-size: 0.9rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .book-item .price-save {
+            color: #333;
+            /* padding-top: 0; */
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .savings-splat {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4rem;
+            padding: 0rem 0.2rem;
+            z-index: 1;
+            color: white;
+            font-weight: bold;
+            pointer-events: none;
+            font-size: 0.8rem;
+            text-align: left;
+        }
+
+        .savings-splat:before {
+            content: "";
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-style: solid;
+            border-width: 4rem 4rem 0 0;
+            border-color: #E30612 transparent transparent transparent;
+            z-index: -1;
+        }
+
+        /* .carousel-item-prev {
+            left: -5rem;
+        }
+
+        .carousel-item-next {
+            right: -5rem;
         } */
+
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: auto;
+            padding: 0.5rem;
+        }
+
+        .carousel-control-prev {
+            left: -1rem;
+        }
+
+        .carousel-control-prev-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
+        }
+
+        .carousel-control-next {
+            right: -1rem;
+        }
+
+        .carousel-control-next-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
+            right: -1rem;
+        }
+
+
+        .card-body {
+            padding: 1rem;
+        }
     </style>
 </head>
 
 <body class="custom-scroll-bar">
     <!-- <div class="parallax"></div> -->
     <nav id="main-navbar" class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="container">
+        <div class="container-md">
             <!-- Flex Box Row 1 -->
             <div id="navbar-row-1">
 
@@ -136,10 +316,12 @@
                                        aria-label="Search"
                                        aria-describedby="search-button-addon">
                                 <div class="input-group-append">
-                                    <button class="btn btn-secondary" type="button" id="search-button-addon">
+                                    <button class="btn btn-secondary btn-navbar-search-field" type="button"
+                                            id="search-button-addon">
                                         <i class="fa fa-search" aria-hidden="true"></i>
                                     </button>
-                                    <button class="btn btn-secondary" type="button" id="search-button-addon">
+                                    <button class="btn btn-secondary btn-navbar-search-field" type="button"
+                                            id="search-button-addon">
                                         Búsqueda avanzada
                                     </button>
                                 </div>
@@ -153,7 +335,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item d-none">
                             <a class="nav-link" href="#">
-                                <i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 1.5rem"></i>
+                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                             </a>
                         </li>
 
@@ -165,8 +347,7 @@
                                       class="sr-only">(current)&gt;</span>
                             </a>
                             <!-- position:absolute al mostrar el toggle -->
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01"
-                                 style="position: absolute;">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
                                 <a class="dropdown-item" href="#/user/perfil">Perfil</a>
                                 <a class="dropdown-item" href="#/user/pedidos">Mis pedidos</a>
                                 <a class="dropdown-item" href="#/logout">Cerrar sesión</a>
@@ -174,10 +355,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"
-                                   style="font-size: 1.5rem"></i>
+                            <a id="cartLink" class="nav-link" href="#">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <span class="badge badge-cart-count">5</span>
                             </a>
+
                         </li>
                     </ul><!-- /.navbar-nav (#navbar-row1-links)-->
 
@@ -209,7 +391,7 @@
                             <a class="nav-link" href="#">Sobre nosotros</a>
                         </li>
 
-                        <li class="d-none nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dropdown link
@@ -227,9 +409,10 @@
         </div>
     </nav>
 
-    <main id="main-container" class="container"
+    <main id="main-container" class="container-md"
           style2="border:1px solid red; padding: 15px; background-color: #ffffff; min-height: calc(100vh * 2);"
           style2="padding: 0; padding-top2: 1rem; min-height: calc(100vh * 2);">
+
 
         <!-- Recomendaciones -->
         <section class="card showcase">
@@ -237,9 +420,294 @@
                 <i class="fas fa-book"></i> Recomendaciones
             </h3>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div id="carouselRecomendaciones" class="carousel slide" data-interval="false" data-ride="carousel">
+                    <div class="carousel-inner row w-100 mx-auto">
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                            <div class="book-item">
+                                <div class="book-img" style2="border:1px solid green; display:block">
+                                    <a
+                                       href="#">
+                                        <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                             src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                        <div class="savings-splat">
+                                            Ahorra<br>10%
+                                        </div>
+                                    </a>
+                                </div><!-- /.book-img-->
+                                <div class="book-info">
+                                    <h3 class="title">
+                                        <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333 444
+                                            555</a>
+                                    </h3>
+                                    <p class="author">
+                                        <a href="#">
+                                            Timmothy Posey
+                                        </a>
+                                    </p>
+                                    <div class="rating-wrap">
+                                        <a href="#">
+                                            <div class="stars">
+                                                <span class="star full-star"></span>
+                                                <span class="star full-star"></span>
+                                                <span class="star half-star"></span>
+                                                <span class="star "></span>
+                                                <span class="star "></span>
+                                            </div>
+                                        </a>
+                                    </div><!-- /.rating-wrap -->
+
+                                    <div class="price-wrap">
+                                        <p class="price">
+                                            35,23 €
+                                            &nbsp;<span class="rrp">40,50 €</span>
+                                        </p>
+                                        <p class="price-save">
+                                            Ahorra 5,27 €</p>
+                                    </div><!-- /.price-wrap -->
+
+                                    <div class="book-item-actions">
+                                        <div class="btn-wrap">
+                                            <a rel="nofollow" href="#"
+                                               class="btn btn-sm btn-primary btn-block">
+                                                Añadir a la cesta</a>
+                                        </div>
+                                    </div><!-- /.book-item-actions -->
+                                </div><!-- /.book-info -->
+                            </div><!-- /.book-item -->
+                        </div><!-- /.carousel-item -->
+
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="book-item">
+                                <div class="book-img" style2="border:1px solid green; display:block">
+                                    <a
+                                       href="#">
+                                        <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                             src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                        <div class="savings-splat">
+                                            Ahorra<br>20%
+                                        </div>
+                                    </a>
+                                </div><!-- /.book-img-->
+                                <div class="book-info">
+                                    <h3 class="title">
+                                        <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333 444
+                                            555</a>
+                                    </h3>
+                                    <p class="author">
+                                        <a href="#">
+                                            Timmothy Posey
+                                        </a>
+                                    </p>
+                                    <div class="rating-wrap">
+                                        <a href="#">
+                                            <div class="stars">
+                                                <span class="star full-star"></span>
+                                                <span class="star full-star"></span>
+                                                <span class="star half-star"></span>
+                                                <span class="star "></span>
+                                                <span class="star "></span>
+                                            </div>
+                                        </a>
+                                    </div><!-- /.rating-wrap -->
+
+                                    <div class="price-wrap">
+                                        <p class="price">
+                                            35,23 €
+                                            &nbsp;<span class="rrp">40,50 €</span>
+                                        </p>
+                                        <p class="price-save">
+                                            Ahorra 5,27 €</p>
+                                    </div><!-- /.price-wrap -->
+
+                                    <div class="book-item-actions">
+                                        <div class="btn-wrap">
+                                            <a rel="nofollow" href="#"
+                                               class="btn btn-sm btn-primary btn-block">
+                                                Añadir a la cesta</a>
+                                        </div>
+                                    </div><!-- /.book-item-actions -->
+                                </div><!-- /.book-info -->
+                            </div><!-- /.book-item -->
+                        </div><!-- /.carousel-item -->
+
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="book-item">
+                                <div class="book-img" style2="border:1px solid green; display:block">
+                                    <a
+                                       href="#">
+                                        <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                             src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                        <div class="savings-splat">
+                                            Ahorra<br>30%
+                                        </div>
+                                    </a>
+                                </div><!-- /.book-img-->
+                                <div class="book-info">
+                                    <h3 class="title">
+                                        <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333 444
+                                            555</a>
+                                    </h3>
+                                    <p class="author">
+                                        <a href="#">
+                                            Timmothy Posey
+                                        </a>
+                                    </p>
+                                    <div class="rating-wrap">
+                                        <a href="#">
+                                            <div class="stars">
+                                                <span class="star full-star"></span>
+                                                <span class="star full-star"></span>
+                                                <span class="star half-star"></span>
+                                                <span class="star "></span>
+                                                <span class="star "></span>
+                                            </div>
+                                        </a>
+                                    </div><!-- /.rating-wrap -->
+
+                                    <div class="price-wrap">
+                                        <p class="price">
+                                            35,23 €
+                                            &nbsp;<span class="rrp">40,50 €</span>
+                                        </p>
+                                        <p class="price-save">
+                                            Ahorra 5,27 €</p>
+                                    </div><!-- /.price-wrap -->
+
+                                    <div class="book-item-actions">
+                                        <div class="btn-wrap">
+                                            <a rel="nofollow" href="#"
+                                               class="btn btn-sm btn-primary btn-block">
+                                                Añadir a la cesta</a>
+                                        </div>
+                                    </div><!-- /.book-item-actions -->
+                                </div><!-- /.book-info -->
+                            </div><!-- /.book-item -->
+                        </div><!-- /.carousel-item -->
+
+
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="book-item">
+                                <div class="book-img" style2="border:1px solid green; display:block">
+                                    <a
+                                       href="#">
+                                        <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                             src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                        <div class="savings-splat">
+                                            Ahorra<br>40%
+                                        </div>
+                                    </a>
+                                </div><!-- /.book-img-->
+                                <div class="book-info">
+                                    <h3 class="title">
+                                        <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333 444
+                                            555</a>
+                                    </h3>
+                                    <p class="author">
+                                        <a href="#">
+                                            Timmothy Posey
+                                        </a>
+                                    </p>
+                                    <div class="rating-wrap">
+                                        <a href="#">
+                                            <div class="stars">
+                                                <span class="star full-star"></span>
+                                                <span class="star full-star"></span>
+                                                <span class="star half-star"></span>
+                                                <span class="star "></span>
+                                                <span class="star "></span>
+                                            </div>
+                                        </a>
+                                    </div><!-- /.rating-wrap -->
+
+                                    <div class="price-wrap">
+                                        <p class="price">
+                                            35,23 €
+                                            &nbsp;<span class="rrp">40,50 €</span>
+                                        </p>
+                                        <p class="price-save">
+                                            Ahorra 5,27 €</p>
+                                    </div><!-- /.price-wrap -->
+
+                                    <div class="book-item-actions">
+                                        <div class="btn-wrap">
+                                            <a rel="nofollow" href="#"
+                                               class="btn btn-sm btn-primary btn-block">
+                                                Añadir a la cesta</a>
+                                        </div>
+                                    </div><!-- /.book-item-actions -->
+                                </div><!-- /.book-info -->
+                            </div><!-- /.book-item -->
+                        </div><!-- /.carousel-item -->
+
+
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="book-item">
+                                <div class="book-img" style2="border:1px solid green; display:block">
+                                    <a
+                                       href="#">
+                                        <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                             src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                        <div class="savings-splat">
+                                            Ahorra<br>50%
+                                        </div>
+                                    </a>
+                                </div><!-- /.book-img-->
+                                <div class="book-info">
+                                    <h3 class="title">
+                                        <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333 444
+                                            555</a>
+                                    </h3>
+                                    <p class="author">
+                                        <a href="#">
+                                            Timmothy Posey
+                                        </a>
+                                    </p>
+                                    <div class="rating-wrap">
+                                        <a href="#">
+                                            <div class="stars">
+                                                <span class="star full-star"></span>
+                                                <span class="star full-star"></span>
+                                                <span class="star half-star"></span>
+                                                <span class="star "></span>
+                                                <span class="star "></span>
+                                            </div>
+                                        </a>
+                                    </div><!-- /.rating-wrap -->
+
+                                    <div class="price-wrap">
+                                        <p class="price">
+                                            35,23 €
+                                            &nbsp;<span class="rrp">40,50 €</span>
+                                        </p>
+                                        <p class="price-save">
+                                            Ahorra 5,27 €</p>
+                                    </div><!-- /.price-wrap -->
+
+                                    <div class="book-item-actions">
+                                        <div class="btn-wrap">
+                                            <a rel="nofollow" href="#"
+                                               class="btn btn-sm btn-primary btn-block">
+                                                Añadir a la cesta</a>
+                                        </div>
+                                    </div><!-- /.book-item-actions -->
+                                </div><!-- /.book-info -->
+                            </div><!-- /.book-item -->
+                        </div><!-- /.carousel-item -->
+                    </div><!-- /.carousel-inner -->
+
+                    <!-- Controles -->
+                    <a class="carousel-control-prev xd-none" href="#carouselRecomendaciones" role="button"
+                       data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next xd-none" href="#carouselRecomendaciones" role="button"
+                       data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div><!-- /#carouselRecomendaciones.carousel.slide-->
+            </div>
             </div>
         </section>
 
@@ -249,11 +717,297 @@
                 <i class="fas fa-award"></i> Bestsellers
             </h3>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div id="carouselBestsellers" class="carousel slide" data-interval="false" data-ride="carousel">
+                    <div class="carousel-inner row w-100 mx-auto">
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                            <div class="book-item">
+                                <div class="book-img" style2="border:1px solid green; display:block">
+                                    <a
+                                       href="#">
+                                        <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                             src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                        <div class="savings-splat">
+                                            Ahorra<br>10%
+                                        </div>
+                                    </a>
+                                </div><!-- /.book-img-->
+                                <div class="book-info">
+                                    <h3 class="title">
+                                        <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333 444
+                                            555</a>
+                                    </h3>
+                                    <p class="author">
+                                        <a href="#">
+                                            Timmothy Posey
+                                        </a>
+                                    </p>
+                                    <div class="rating-wrap">
+                                        <a href="#">
+                                            <div class="stars">
+                                                <span class="star full-star"></span>
+                                                <span class="star full-star"></span>
+                                                <span class="star half-star"></span>
+                                                <span class="star "></span>
+                                                <span class="star "></span>
+                                            </div>
+                                        </a>
+                                    </div><!-- /.rating-wrap -->
+
+                                    <div class="price-wrap">
+                                        <p class="price">
+                                            35,23 €
+                                            &nbsp;<span class="rrp">40,50 €</span>
+                                        </p>
+                                        <p class="price-save">
+                                            Ahorra 5,27 €</p>
+                                    </div><!-- /.price-wrap -->
+
+                                    <div class="book-item-actions">
+                                        <div class="btn-wrap">
+                                            <a rel="nofollow" href="#"
+                                               class="btn btn-sm btn-primary btn-block">
+                                                Añadir a la cesta</a>
+                                        </div>
+                                    </div><!-- /.book-item-actions -->
+                                </div><!-- /.book-info -->
+                            </div><!-- /.book-item -->
+                        </div><!-- /.carousel-item -->
+
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="book-item">
+                                <div class="book-img" style2="border:1px solid green; display:block">
+                                    <a
+                                       href="#">
+                                        <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                             src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                        <div class="savings-splat">
+                                            Ahorra<br>20%
+                                        </div>
+                                    </a>
+                                </div><!-- /.book-img-->
+                                <div class="book-info">
+                                    <h3 class="title">
+                                        <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333 444
+                                            555</a>
+                                    </h3>
+                                    <p class="author">
+                                        <a href="#">
+                                            Timmothy Posey
+                                        </a>
+                                    </p>
+                                    <div class="rating-wrap">
+                                        <a href="#">
+                                            <div class="stars">
+                                                <span class="star full-star"></span>
+                                                <span class="star full-star"></span>
+                                                <span class="star half-star"></span>
+                                                <span class="star "></span>
+                                                <span class="star "></span>
+                                            </div>
+                                        </a>
+                                    </div><!-- /.rating-wrap -->
+
+                                    <div class="price-wrap">
+                                        <p class="price">
+                                            35,23 €
+                                            &nbsp;<span class="rrp">40,50 €</span>
+                                        </p>
+                                        <p class="price-save">
+                                            Ahorra 5,27 €</p>
+                                    </div><!-- /.price-wrap -->
+
+                                    <div class="book-item-actions">
+                                        <div class="btn-wrap">
+                                            <a rel="nofollow" href="#"
+                                               class="btn btn-sm btn-primary btn-block">
+                                                Añadir a la cesta</a>
+                                        </div>
+                                    </div><!-- /.book-item-actions -->
+                                </div><!-- /.book-info -->
+                            </div><!-- /.book-item -->
+                        </div><!-- /.carousel-item -->
+
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="book-item">
+                                <div class="book-img" style2="border:1px solid green; display:block">
+                                    <a
+                                       href="#">
+                                        <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                             src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                        <div class="savings-splat">
+                                            Ahorra<br>30%
+                                        </div>
+                                    </a>
+                                </div><!-- /.book-img-->
+                                <div class="book-info">
+                                    <h3 class="title">
+                                        <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333 444
+                                            555</a>
+                                    </h3>
+                                    <p class="author">
+                                        <a href="#">
+                                            Timmothy Posey
+                                        </a>
+                                    </p>
+                                    <div class="rating-wrap">
+                                        <a href="#">
+                                            <div class="stars">
+                                                <span class="star full-star"></span>
+                                                <span class="star full-star"></span>
+                                                <span class="star half-star"></span>
+                                                <span class="star "></span>
+                                                <span class="star "></span>
+                                            </div>
+                                        </a>
+                                    </div><!-- /.rating-wrap -->
+
+                                    <div class="price-wrap">
+                                        <p class="price">
+                                            35,23 €
+                                            &nbsp;<span class="rrp">40,50 €</span>
+                                        </p>
+                                        <p class="price-save">
+                                            Ahorra 5,27 €</p>
+                                    </div><!-- /.price-wrap -->
+
+                                    <div class="book-item-actions">
+                                        <div class="btn-wrap">
+                                            <a rel="nofollow" href="#"
+                                               class="btn btn-sm btn-primary btn-block">
+                                                Añadir a la cesta</a>
+                                        </div>
+                                    </div><!-- /.book-item-actions -->
+                                </div><!-- /.book-info -->
+                            </div><!-- /.book-item -->
+                        </div><!-- /.carousel-item -->
+
+
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="book-item">
+                                <div class="book-img" style2="border:1px solid green; display:block">
+                                    <a
+                                       href="#">
+                                        <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                             src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                        <div class="savings-splat">
+                                            Ahorra<br>40%
+                                        </div>
+                                    </a>
+                                </div><!-- /.book-img-->
+                                <div class="book-info">
+                                    <h3 class="title">
+                                        <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333 444
+                                            555</a>
+                                    </h3>
+                                    <p class="author">
+                                        <a href="#">
+                                            Timmothy Posey
+                                        </a>
+                                    </p>
+                                    <div class="rating-wrap">
+                                        <a href="#">
+                                            <div class="stars">
+                                                <span class="star full-star"></span>
+                                                <span class="star full-star"></span>
+                                                <span class="star half-star"></span>
+                                                <span class="star "></span>
+                                                <span class="star "></span>
+                                            </div>
+                                        </a>
+                                    </div><!-- /.rating-wrap -->
+
+                                    <div class="price-wrap">
+                                        <p class="price">
+                                            35,23 €
+                                            &nbsp;<span class="rrp">40,50 €</span>
+                                        </p>
+                                        <p class="price-save">
+                                            Ahorra 5,27 €</p>
+                                    </div><!-- /.price-wrap -->
+
+                                    <div class="book-item-actions">
+                                        <div class="btn-wrap">
+                                            <a rel="nofollow" href="#"
+                                               class="btn btn-sm btn-primary btn-block">
+                                                Añadir a la cesta</a>
+                                        </div>
+                                    </div><!-- /.book-item-actions -->
+                                </div><!-- /.book-info -->
+                            </div><!-- /.book-item -->
+                        </div><!-- /.carousel-item -->
+
+
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="book-item">
+                                <div class="book-img" style2="border:1px solid green; display:block">
+                                    <a
+                                       href="#">
+                                        <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                             src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                        <div class="savings-splat">
+                                            Ahorra<br>50%
+                                        </div>
+                                    </a>
+                                </div><!-- /.book-img-->
+                                <div class="book-info">
+                                    <h3 class="title">
+                                        <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333 444
+                                            555</a>
+                                    </h3>
+                                    <p class="author">
+                                        <a href="#">
+                                            Timmothy Posey
+                                        </a>
+                                    </p>
+                                    <div class="rating-wrap">
+                                        <a href="#">
+                                            <div class="stars">
+                                                <span class="star full-star"></span>
+                                                <span class="star full-star"></span>
+                                                <span class="star half-star"></span>
+                                                <span class="star "></span>
+                                                <span class="star "></span>
+                                            </div>
+                                        </a>
+                                    </div><!-- /.rating-wrap -->
+
+                                    <div class="price-wrap">
+                                        <p class="price">
+                                            35,23 €
+                                            &nbsp;<span class="rrp">40,50 €</span>
+                                        </p>
+                                        <p class="price-save">
+                                            Ahorra 5,27 €</p>
+                                    </div><!-- /.price-wrap -->
+
+                                    <div class="book-item-actions">
+                                        <div class="btn-wrap">
+                                            <a rel="nofollow" href="#"
+                                               class="btn btn-sm btn-primary btn-block">
+                                                Añadir a la cesta</a>
+                                        </div>
+                                    </div><!-- /.book-item-actions -->
+                                </div><!-- /.book-info -->
+                            </div><!-- /.book-item -->
+                        </div><!-- /.carousel-item -->
+                    </div><!-- /.carousel-inner -->
+
+                    <!-- Controles -->
+                    <a class="carousel-control-prev xd-none" href="#carouselBestsellers" role="button"
+                       data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next xd-none" href="#carouselBestsellers" role="button"
+                       data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div><!-- /#carouselBestsellers.carousel.slide-->
+
             </div>
         </section>
+
 
         <!-- Categorías -->
         <section class="container-fluid">
@@ -298,12 +1052,350 @@
             </h3>
             <div class="card" style="border-top-left-radius: 0; border-top-right-radius: 0;">
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <!-- 
+                    <div id="carousel-example" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                                <img src="/img/1.jpg"
+                                     class="img-fluid mx-auto d-block" alt="img1">
+                            </div>
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                <img src="/img/2.jpg"
+                                     class="img-fluid mx-auto d-block" alt="img2">
+                            </div>
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                <img src="/img/3.jpg"
+                                     class="img-fluid mx-auto d-block" alt="img3">
+                            </div>
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                <img src="/img/4.jpg"
+                                     class="img-fluid mx-auto d-block" alt="img4">
+                            </div>
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                <img src="/img/5.jpg"
+                                     class="img-fluid mx-auto d-block" alt="img5">
+                            </div>
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                <img src="/img/6.jpg"
+                                     class="img-fluid mx-auto d-block" alt="img6">
+                            </div>
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                <img src="/img/7.jpg"
+                                     class="img-fluid mx-auto d-block" alt="img7">
+                            </div>
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                <img src="/img/8.jpg"
+                                     class="img-fluid mx-auto d-block" alt="img8">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+
+                    </div> -->
+                    <div id="carouselNovedades" class="carousel slide" data-interval="false" data-ride="carousel">
+                        <div class="carousel-inner row w-100 mx-auto">
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                                <div class="book-item">
+                                    <div class="book-img" style2="border:1px solid green; display:block">
+                                        <a
+                                           href="#">
+                                            <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                                 src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                            <div class="savings-splat">
+                                                Ahorra<br>10%
+                                            </div>
+                                        </a>
+                                    </div><!-- /.book-img-->
+                                    <div class="book-info">
+                                        <h3 class="title">
+                                            <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333
+                                                444
+                                                555</a>
+                                        </h3>
+                                        <p class="author">
+                                            <a href="#">
+                                                Timmothy Posey
+                                            </a>
+                                        </p>
+                                        <div class="rating-wrap">
+                                            <a href="#">
+                                                <div class="stars">
+                                                    <span class="star full-star"></span>
+                                                    <span class="star full-star"></span>
+                                                    <span class="star half-star"></span>
+                                                    <span class="star "></span>
+                                                    <span class="star "></span>
+                                                </div>
+                                            </a>
+                                        </div><!-- /.rating-wrap -->
+
+                                        <div class="price-wrap">
+                                            <p class="price">
+                                                35,23 €
+                                                &nbsp;<span class="rrp">40,50 €</span>
+                                            </p>
+                                            <p class="price-save">
+                                                Ahorra 5,27 €</p>
+                                        </div><!-- /.price-wrap -->
+
+                                        <div class="book-item-actions">
+                                            <div class="btn-wrap">
+                                                <a rel="nofollow" href="#"
+                                                   class="btn btn-sm btn-primary btn-block">
+                                                    Añadir a la cesta</a>
+                                            </div>
+                                        </div><!-- /.book-item-actions -->
+                                    </div><!-- /.book-info -->
+                                </div><!-- /.book-item -->
+                            </div><!-- /.carousel-item -->
+
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="book-item">
+                                    <div class="book-img" style2="border:1px solid green; display:block">
+                                        <a
+                                           href="#">
+                                            <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                                 src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                            <div class="savings-splat">
+                                                Ahorra<br>20%
+                                            </div>
+                                        </a>
+                                    </div><!-- /.book-img-->
+                                    <div class="book-info">
+                                        <h3 class="title">
+                                            <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333
+                                                444
+                                                555</a>
+                                        </h3>
+                                        <p class="author">
+                                            <a href="#">
+                                                Timmothy Posey
+                                            </a>
+                                        </p>
+                                        <div class="rating-wrap">
+                                            <a href="#">
+                                                <div class="stars">
+                                                    <span class="star full-star"></span>
+                                                    <span class="star full-star"></span>
+                                                    <span class="star half-star"></span>
+                                                    <span class="star "></span>
+                                                    <span class="star "></span>
+                                                </div>
+                                            </a>
+                                        </div><!-- /.rating-wrap -->
+
+                                        <div class="price-wrap">
+                                            <p class="price">
+                                                35,23 €
+                                                &nbsp;<span class="rrp">40,50 €</span>
+                                            </p>
+                                            <p class="price-save">
+                                                Ahorra 5,27 €</p>
+                                        </div><!-- /.price-wrap -->
+
+                                        <div class="book-item-actions">
+                                            <div class="btn-wrap">
+                                                <a rel="nofollow" href="#"
+                                                   class="btn btn-sm btn-primary btn-block">
+                                                    Añadir a la cesta</a>
+                                            </div>
+                                        </div><!-- /.book-item-actions -->
+                                    </div><!-- /.book-info -->
+                                </div><!-- /.book-item -->
+                            </div><!-- /.carousel-item -->
+
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="book-item">
+                                    <div class="book-img" style2="border:1px solid green; display:block">
+                                        <a
+                                           href="#">
+                                            <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                                 src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                            <div class="savings-splat">
+                                                Ahorra<br>30%
+                                            </div>
+                                        </a>
+                                    </div><!-- /.book-img-->
+                                    <div class="book-info">
+                                        <h3 class="title">
+                                            <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333
+                                                444
+                                                555</a>
+                                        </h3>
+                                        <p class="author">
+                                            <a href="#">
+                                                Timmothy Posey
+                                            </a>
+                                        </p>
+                                        <div class="rating-wrap">
+                                            <a href="#">
+                                                <div class="stars">
+                                                    <span class="star full-star"></span>
+                                                    <span class="star full-star"></span>
+                                                    <span class="star half-star"></span>
+                                                    <span class="star "></span>
+                                                    <span class="star "></span>
+                                                </div>
+                                            </a>
+                                        </div><!-- /.rating-wrap -->
+
+                                        <div class="price-wrap">
+                                            <p class="price">
+                                                35,23 €
+                                                &nbsp;<span class="rrp">40,50 €</span>
+                                            </p>
+                                            <p class="price-save">
+                                                Ahorra 5,27 €</p>
+                                        </div><!-- /.price-wrap -->
+
+                                        <div class="book-item-actions">
+                                            <div class="btn-wrap">
+                                                <a rel="nofollow" href="#"
+                                                   class="btn btn-sm btn-primary btn-block">
+                                                    Añadir a la cesta</a>
+                                            </div>
+                                        </div><!-- /.book-item-actions -->
+                                    </div><!-- /.book-info -->
+                                </div><!-- /.book-item -->
+                            </div><!-- /.carousel-item -->
+
+
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="book-item">
+                                    <div class="book-img" style2="border:1px solid green; display:block">
+                                        <a
+                                           href="#">
+                                            <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                                 src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                            <div class="savings-splat">
+                                                Ahorra<br>40%
+                                            </div>
+                                        </a>
+                                    </div><!-- /.book-img-->
+                                    <div class="book-info">
+                                        <h3 class="title">
+                                            <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333
+                                                444
+                                                555</a>
+                                        </h3>
+                                        <p class="author">
+                                            <a href="#">
+                                                Timmothy Posey
+                                            </a>
+                                        </p>
+                                        <div class="rating-wrap">
+                                            <a href="#">
+                                                <div class="stars">
+                                                    <span class="star full-star"></span>
+                                                    <span class="star full-star"></span>
+                                                    <span class="star half-star"></span>
+                                                    <span class="star "></span>
+                                                    <span class="star "></span>
+                                                </div>
+                                            </a>
+                                        </div><!-- /.rating-wrap -->
+
+                                        <div class="price-wrap">
+                                            <p class="price">
+                                                35,23 €
+                                                &nbsp;<span class="rrp">40,50 €</span>
+                                            </p>
+                                            <p class="price-save">
+                                                Ahorra 5,27 €</p>
+                                        </div><!-- /.price-wrap -->
+
+                                        <div class="book-item-actions">
+                                            <div class="btn-wrap">
+                                                <a rel="nofollow" href="#"
+                                                   class="btn btn-sm btn-primary btn-block">
+                                                    Añadir a la cesta</a>
+                                            </div>
+                                        </div><!-- /.book-item-actions -->
+                                    </div><!-- /.book-info -->
+                                </div><!-- /.book-item -->
+                            </div><!-- /.carousel-item -->
+
+
+                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="book-item">
+                                    <div class="book-img" style2="border:1px solid green; display:block">
+                                        <a
+                                           href="#">
+                                            <img alt="Build Your Own Website The Right Way Using HTML &amp; CSS 3e"
+                                                 src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/9870/9780987090850.jpg">
+                                            <div class="savings-splat">
+                                                Ahorra<br>50%
+                                            </div>
+                                        </a>
+                                    </div><!-- /.book-img-->
+                                    <div class="book-info">
+                                        <h3 class="title">
+                                            <a href="#">Build Your Own ASP.NET 4 Web Site Using C# and VB 111 222 333
+                                                444
+                                                555</a>
+                                        </h3>
+                                        <p class="author">
+                                            <a href="#">
+                                                Timmothy Posey
+                                            </a>
+                                        </p>
+                                        <div class="rating-wrap">
+                                            <a href="#">
+                                                <div class="stars">
+                                                    <span class="star full-star"></span>
+                                                    <span class="star full-star"></span>
+                                                    <span class="star half-star"></span>
+                                                    <span class="star "></span>
+                                                    <span class="star "></span>
+                                                </div>
+                                            </a>
+                                        </div><!-- /.rating-wrap -->
+
+                                        <div class="price-wrap">
+                                            <p class="price">
+                                                35,23 €
+                                                &nbsp;<span class="rrp">40,50 €</span>
+                                            </p>
+                                            <p class="price-save">
+                                                Ahorra 5,27 €</p>
+                                        </div><!-- /.price-wrap -->
+
+                                        <div class="book-item-actions">
+                                            <div class="btn-wrap">
+                                                <a rel="nofollow" href="#"
+                                                   class="btn btn-sm btn-primary btn-block">
+                                                    Añadir a la cesta</a>
+                                            </div>
+                                        </div><!-- /.book-item-actions -->
+                                    </div><!-- /.book-info -->
+                                </div><!-- /.book-item -->
+                            </div><!-- /.carousel-item -->
+                        </div><!-- /.carousel-inner -->
+
+                        <!-- Controles -->
+                        <a class="carousel-control-prev xd-none" href="#carouselNovedades" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next xd-none" href="#carouselNovedades" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div><!-- /#carouselNovedades.carousel.slide-->
+
                 </div>
             </div>
         </section>
+
+
 
     </main><!-- /#main-container -->
 
@@ -320,6 +1412,40 @@
             crossorigin="anonymous"></script>
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/0a45d04076.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            console.log("Hola");
+            /*
+                Stop carousel
+            */
+            // $('.carousel').carousel('pause');
+
+            $('#carouselRecomendaciones').carousel('pause');
+
+            // $('#carousel-example.carousel').on('slide.bs.carousel', function (e) {
+            //     console.log("slide");
+            //     console.log($(this).attr("id"));
+            //     var $e = $(e.relatedTarget);
+            //     var idx = $e.index();
+            //     var itemsPerSlide = 4;
+            //     var totalItems = $('#carousel-example .carousel-item').length;
+
+            //     if (idx >= totalItems - (itemsPerSlide - 1)) {
+            //         var it = itemsPerSlide - (totalItems - idx);
+            //         for (var i = 0; i < it; i++) {
+            //             // append slides to end
+            //             if (e.direction == "left") {
+            //                 $('#carousel-example .carousel-item').eq(i).appendTo('.carousel-inner');
+            //             }
+            //             else {
+            //                 $('#carousel-example .carousel-item').eq(0).appendTo('.carousel-inner');
+            //             }
+            //         }
+            //     }
+            // });
+        });
+    </script>
 </body>
 
 </html>
