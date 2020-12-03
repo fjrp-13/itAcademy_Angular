@@ -5,7 +5,7 @@
 
 body {
   color: black;
-  background-image: url("/img/background.jpg");
+  background-image: url("img/background.jpg");
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
