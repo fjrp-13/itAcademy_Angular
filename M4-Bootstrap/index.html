@@ -17,6 +17,7 @@
 </head>
 
 <body class="custom-scroll-bar">
+    <!-- Main Navbar -->
     <nav id="main-navbar" class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container-md">
             <!-- Flex Box Row 1 -->
@@ -52,13 +53,14 @@
                 <!-- Nav Row 1 Links -->
                 <div id="navbar-row-1-links" class="navbar-row-item">
                     <ul class="navbar-nav">
-                        <li class="nav-item d-none">
-                            <a class="nav-link" href="#">
+                        <li class="nav-item">
+                            <a href="#" data-toggle="modal" data-target="#loginModal" class="nav-link"
+                               title="Identifícate">
                                 <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                             </a>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown d-none">
                             <!-- Necesita padding al mostrar el toggle -->
                             <a class="nav-link dropdown-toggle" href="#/about/" id="dropdown01"
                                data-toggle="dropdown"
@@ -117,6 +119,7 @@
         </div>
     </nav>
 
+    <!-- Main Container  -->
     <main id="main-container" class="container-md">
         <!-- Recomendaciones -->
         <section id="cardRecomendaciones" class="card showcase">
@@ -1144,6 +1147,41 @@
         </div><!-- /.footer-container  -->
     </footer><!-- /#main-footer -->
 
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal modal-dark fade" aria-modal="true">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Identifícate</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div><!-- /.modal-header -->
+
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <i class="fa fa-user"></i>
+                            <input type="text" class="form-control" placeholder="Usuario" required="required">
+                        </div>
+                        <div class="form-group">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" class="form-control" placeholder="Contraseña" required="required">
+                        </div>
+                    </form>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-secondary btn-block btn-lg">Iniciar sesión</button>
+                    </div>
+                    <p class="hint-text"><a href="#">¿Has olvidado tu contraseña?</a></p>
+                    </form>
+                </div><!-- /.modal-body -->
+
+                <div class="modal-footer">
+                    ¿No tienes cuenta? <a href="#">Regístrate</a>
+                </div><!-- /.modal-footer -->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog.modal-login -->
+    </div><!-- /#loginModal.modal -->
+
     <!-- jQuery, Popper.js, and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -1181,6 +1219,12 @@
                     }
                 }
             });
+
+            /* Autofocus de los modales */
+            $('.modal').on('shown.bs.modal', function () {
+                var $modal = $(this);
+                $('input:visible:first', $modal).trigger('focus');
+            })
         });
     </script>
 </body>

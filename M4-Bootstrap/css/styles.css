@@ -349,3 +349,47 @@ html {
   .carousel-control-next .carousel-control-next-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
     right: -1rem; }
+
+.modal-login {
+  width: 350px;
+  width: 22rem; }
+  .modal-login p {
+    text-align: center; }
+  .modal-login.modal-dialog {
+    color: #898989; }
+    .modal-login.modal-dialog .modal-content {
+      background-color: #393939; }
+      .modal-login.modal-dialog .modal-content a {
+        color: goldenrod;
+        text-decoration: none;
+        border-bottom: 1px dotted goldenrod; }
+      .modal-login.modal-dialog .modal-content a:hover {
+        border-bottom-style: solid; }
+      .modal-login.modal-dialog .modal-content .modal-header {
+        border-bottom: none;
+        color: #fafafa; }
+        .modal-login.modal-dialog .modal-content .modal-header .modal-title {
+          width: 100% !important;
+          text-align: center; }
+        .modal-login.modal-dialog .modal-content .modal-header button {
+          color: #fafafa; }
+      .modal-login.modal-dialog .modal-content .modal-body .btn {
+        color: #898989;
+        background-color: #121212; }
+        .modal-login.modal-dialog .modal-content .modal-body .btn:hover {
+          color: goldenrod; }
+      .modal-login.modal-dialog .modal-content .modal-body .form-group {
+        position: relative; }
+        .modal-login.modal-dialog .modal-content .modal-body .form-group .form-control {
+          padding-left: 40px; }
+        .modal-login.modal-dialog .modal-content .modal-body .form-group i {
+          position: absolute;
+          left: 0.75rem;
+          top: 0.75rem;
+          font-size: 1rem;
+          color: #121212; }
+      .modal-login.modal-dialog .modal-content .modal-footer {
+        background-color: #121212;
+        text-align: center;
+        justify-content: center;
+        border: none; }
